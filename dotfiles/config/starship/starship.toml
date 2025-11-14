@@ -1,0 +1,65 @@
+format = """
+[](#414868)\
+$directory\
+$git_branch$git_status\
+$docker_context\
+$kubernetes\
+$nodejs\
+[ ](#414868)
+$character
+"""
+
+right_format = """
+$time
+"""
+
+[directory]
+style = "bold fg:#c0caf5 bg:#414868"
+format = "[ $path ]($style)"
+truncate_to_repo = false
+truncation_length = 3
+
+[git_branch]
+symbol = " "
+style = "fg:#e0af68 bg:#414868"
+format = "[ $symbol$branch ]($style)"
+
+[git_status]
+style = "fg:#f7768e bg:#414868"
+format = "[$all_status$ahead_behind]($style)"
+
+[nodejs]
+symbol = " "
+style = "fg:#9ece6a bg:#414868"
+format = "[ $symbol($version) ]($style)"
+
+[docker_context]
+symbol = "🐳 "
+style = "fg:#7dcfff bg:#414868"
+format = "[ $symbol$context ]($style)"
+
+[kubernetes]
+symbol = "⎈ "
+style = "fg:#bb9af7 bg:#414868"
+format = "[ $symbol$context ]($style)"
+disabled = false
+
+[kubernetes.context_aliases]
+"kind-kind" = "kind"
+
+[character]
+success_symbol = "[❯](bold fg:#9ece6a)"
+error_symbol = "[❯](bold fg:#f7768e)"
+
+[time]
+disabled = false
+format = "[$time]($style)"
+style = "fg:#565f89"
+time_format = "%H:%M"
+
+[cmd_duration]
+min_time = 500
+format = "[⏱ $duration ](fg:#e0af68)"
+
+[shlvl]
+disabled = true
